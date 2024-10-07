@@ -2,10 +2,14 @@
 @tailwind components;
 @tailwind utilities;
 
-body{
-    @apply bg-[#0B2434]
+body {
+  @apply bg-[#0B2434];
 }
 
-.box{
-    @apply font-bold text-2xl sm:text-4xl p-3 sm:p-4 rounded-lg bg-white shadow-lg cursor-pointer;
+.box {
+  @apply font-bold text-2xl sm:text-4xl py-3 px-4 sm:px-5 sm:py-4 rounded-lg shadow-lg cursor-pointer;
+}
+
+.main {
+  @apply h-[25rem] my-[10%] mx-[10%] sm:mx-[15%] md:mx-[25%] lg:mx-[35%] bg-[#F5F5F5] rounded-xl;
 }
