@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import "./App.css";
 import Dice from "./components/Dice";
 import { nanoid } from "nanoid";
@@ -20,6 +20,7 @@ const allNewDice = () => {
 
 const App = () => {
   const [values, setValues] = useState(allNewDice());
+  const [tenzies, setTenzies] = useState(false);
 
   const holdDice = (id) => {
     setValues((prevVal) =>
@@ -36,6 +37,20 @@ const App = () => {
       })
     );
   };
+
+  useEffect(() => {
+    const allHeld = values.every((val) => val.isHeld);
+    const firstDiceVal = values[0].value;
+
+    const checkAllEqual = values.every((val) => firstDiceVal == val.value);
+
+    if (allHeld && checkAllEqual) {
+      setTenzies(true);
+      console.log("You won!!!")
+    } else {
+      setTenzies(false);
+    }
+  }, [values]);
 
   return (
     <main className="flex flex-col items-center justify-center main">
