@@ -2,6 +2,8 @@ import { useState, useEffect } from "react";
 import "./App.css";
 import Dice from "./components/Dice";
 import { nanoid } from "nanoid";
+import Confetti from "react-confetti";
+import { useWindowSize } from "@react-hook/window-size";
 
 const generateNewDie = () => {
   const randomNum = Math.floor(Math.random() * 6) + 1;
@@ -46,12 +48,12 @@ const App = () => {
 
     if (allHeld && checkAllEqual) {
       setTenzies(true);
-      console.log("You won!!!")
+      console.log("You won!!!");
     } else {
       setTenzies(false);
     }
   }, [values]);
-
+  const [width, height] = useWindowSize();
   return (
     <main className="flex flex-col items-center justify-center main">
       <div className="flex flex-col items-center justify-center mb-6">
@@ -78,8 +80,9 @@ const App = () => {
         onClick={rollDice}
         className="bg-blue-900 p-2 rounded-md text-yellow-400 font-bold text-xl mt-5"
       >
-        Roll Dice
+        {tenzies ? "New Game" : "Roll Dice"}
       </button>
+      {tenzies && <Confetti width={width} height={height} />}
     </main>
   );
 };
