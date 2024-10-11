@@ -33,11 +33,16 @@ const App = () => {
   };
 
   const rollDice = () => {
-    setValues((prevVal) =>
-      prevVal.map((die) => {
-        return die.isHeld ? die : generateNewDie();
-      })
-    );
+    if (!tenzies) {
+      setValues((prevVal) =>
+        prevVal.map((die) => {
+          return die.isHeld ? die : generateNewDie();
+        })
+      );
+    } else {
+      setTenzies(false);
+      setValues(allNewDice());
+    }
   };
 
   useEffect(() => {
