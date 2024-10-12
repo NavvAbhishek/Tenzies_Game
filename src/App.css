@@ -2,10 +2,10 @@
 @tailwind components;
 @tailwind utilities;
 
-.box {
+.smallBox {
   @apply font-bold text-2xl sm:text-4xl py-3 px-4 sm:px-5 sm:py-4 rounded-lg shadow-lg cursor-pointer;
 }
 
-.main {
-  @apply h-[25rem] my-[10%] mx-[10%] sm:mx-[15%] md:mx-[25%] lg:mx-[35%] bg-[#F5F5F5] rounded-xl;
+.whiteBox {
+  @apply h-[25rem] p-10 my-[10%] mx-[10%] sm:mx-[15%] md:mx-[25%] lg:mx-[35%] bg-[#F5F5F5] rounded-xl;
 }

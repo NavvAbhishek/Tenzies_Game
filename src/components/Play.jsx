@@ -60,8 +60,8 @@ const Play = () => {
   }, [values]);
   const [width, height] = useWindowSize();
   return (
-   <main className="flex justify-center items-center min-h-full bg-[#0B2434]">
-     <div className="flex flex-col items-center justify-center main">
+    <main className="min-h-screen bg-[#0B2434] flex justify-center items-center">
+     <div className="flex flex-col items-center justify-center whiteBox">
       <div className="flex flex-col items-center justify-center mb-6">
         <h1 className="text-4xl font-bold text-yellow-700">Tenzies</h1>
         <p className="w-[21rem] font-semibold mt-2">
@@ -75,7 +75,7 @@ const Play = () => {
             <Dice
               value={value.value}
               holdDice={() => holdDice(value.id)}
-              className={`box ${
+              className={`smallBox ${
                 value.isHeld === true ? "bg-yellow-700" : "bg-white"
               }`}
             />
